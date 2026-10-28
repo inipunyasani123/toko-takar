@@ -2,7 +2,7 @@
 
 Semua foto berlisensi CC0 1.0 (domain publik), dicari lewat [Openverse](https://openverse.org), dipotong 4:3, nadanya diseragamkan
 sedikit (saturasi dan gamma), lalu dikonversi ke WebP. Tidak ada wajah yang dikenali dan tidak ada merek yang terbaca.
-Olesan tekstur, logo, ilustrasi kantong/wadah dalam/tabung kertas, dan `public/og.jpg` digambar sendiri (SVG). Foto kemasan di `public/images/kemasan/` (tanpa merek atau label nyata, tanpa wajah) dipotong 4:5; label Takar ditempel di atasnya lewat CSS di `components/Kemasan.js`.
+Olesan tekstur, logo, dan `public/og.jpg` digambar sendiri (SVG). Foto kemasan di `public/images/kemasan/` (tanpa merek atau label nyata, tanpa wajah) dipotong 4:5; label Takar ditempel di atasnya lewat CSS di `components/Kemasan.js`.
 
 | Berkas | Judul / keterangan asli | Pembuat | Sumber | Lisensi |
 | --- | --- | --- | --- | --- |
@@ -15,16 +15,33 @@ Olesan tekstur, logo, ilustrasi kantong/wadah dalam/tabung kertas, dan `public/o
 
 ## Foto kemasan (`public/images/kemasan/`)
 
-Semua CC0 1.0 atau domain publik, diambil dari Wikimedia Commons. Tidak ada foto yang persis botol Takar, jadi semuanya foto pendekatan: wadah sejenis tanpa merek, dengan label Takar digambar di atasnya.
+Satu foto per produk (per varian bila wadahnya beda; pemetaan di `FOTO` pada `components/Kemasan.js`). Tidak ada merek atau label nyata dan tidak ada wajah; label Takar ditempel di atasnya lewat HTML. Enam foto asli CC0/PD dari Wikimedia Commons (foto pendekatan, bukan botol Takar persis), sisanya gambar AI (Google Gemini) karena foto CC0 polos untuk kantong isi ulang, pod, stik, dan botol sejenis tidak ditemukan.
 
-| Berkas | Dipakai untuk | Judul / keterangan asli | Pembuat | Sumber | Lisensi | Pendekatan |
-| --- | --- | --- | --- | --- | --- | --- |
-| `amber.jpg` | botol kaca dan botol pipet cokelat | Bottle MET ADA5065 (dua botol kaca bergaris pilin, amber dan zaitun) | The Metropolitan Museum of Art (Open Access) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bottle_MET_ADA5065.jpg) | CC0 1.0 | botol kaca antik sebagai pengganti botol kaca cokelat |
-| `pipet-1.jpg` | botol pipet | A serum made | Jahra Tasfia Reza | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_serum_made.jpg) | CC0 1.0 | botol pipet kosong bertutup hitam, tanpa label |
-| `pipet-2.jpg` | botol pipet | A dropper sucking serum | Jahra Tasfia Reza | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_dropper_sucking_serum.jpg) | CC0 1.0 | pipet dan botol kaca bening tanpa label |
-| `pompa.jpg` | botol pompa | Pexels-pixabay-433624 | congerdesign | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pexels-pixabay-433624.jpg) | CC0 1.0 | botol pompa sabun cair, tanpa label |
-| `tabung.jpg` | tabung | Woman applying cream to hand | Moose Photos (Pexels) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Woman_applying_cream_to_hand.jpg) | CC0 1.0 | tabung krim biru polos, hanya tangan |
-| `jar.jpg` | jar | Crème | tidak dicantumkan | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cr%C3%A8me.jpg) | CC0 1.0 | toples krim putih polos, hanya tangan |
-| `sabun.jpg` | sabun batang | Pexels-pixabay-206299 | Couleur | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pexels-pixabay-206299.jpg) | CC0 1.0 | sabun batang di piring kaca |
+### Foto asli (CC0 1.0 / domain publik)
 
-Kantong isi ulang, wadah dalam, dan tabung kertas (lip balm) tetap ilustrasi SVG karena tidak ada foto CC0 tanpa merek yang cocok.
+| Berkas | Dipakai untuk | Judul / keterangan asli | Pembuat | Sumber | Lisensi |
+| --- | --- | --- | --- | --- | --- |
+| `pipet-1.jpg` | Serum Niasinamida 5% | A serum made (botol pipet kosong bertutup hitam) | Jahra Tasfia Reza | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_serum_made.jpg) | CC0 1.0 |
+| `pipet-2.jpg` | Serum Hialuronat 2% | A dropper sucking serum | Jahra Tasfia Reza | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_dropper_sucking_serum.jpg) | CC0 1.0 |
+| `pompa.jpg` | Gel Pembersih Pegagan (botol pompa) | Pexels-pixabay-433624 | congerdesign | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pexels-pixabay-433624.jpg) | CC0 1.0 |
+| `tabung.jpg` | Tabir Surya SPF 50 | Woman applying cream to hand (tabung krim biru polos, hanya tangan) | Moose Photos (Pexels) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Woman_applying_cream_to_hand.jpg) | CC0 1.0 |
+| `jar.jpg` | Balm Pembersih Kelapa | Crème (toples krim putih polos, hanya tangan) | tidak dicantumkan | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cr%C3%A8me.jpg) | CC0 1.0 |
+| `sabun.jpg` | Sabun Batang Sereh | Pexels-pixabay-206299 | Couleur | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pexels-pixabay-206299.jpg) | CC0 1.0 |
+
+### Gambar AI (Google Gemini)
+
+Dibuat 28 Okt 2026 dengan perintah foto produk realistis, kemasan polos tanpa tulisan atau merek, latar netral, cahaya lembut. Dipotong 4:5. Bukan foto sungguhan.
+
+| Berkas | Dipakai untuk |
+| --- | --- |
+| `ai-pouch-gel.jpg` | Gel Pembersih Pegagan 200 ml isi ulang (kantong) |
+| `ai-botol-esens.jpg`, `ai-pouch-esens.jpg` | Esens Air Beras: botol 150 ml dan kantong 300 ml |
+| `ai-botol-toner.jpg`, `ai-pouch-toner.jpg` | Toner AHA 5%: botol 100 ml dan kantong 200 ml |
+| `ai-pipet-vitc.jpg` | Serum Vitamin C 10% |
+| `ai-pipet-bha.jpg` | Serum BHA 2% |
+| `ai-pipet-retinol.jpg` | Serum Retinol 0,3% |
+| `ai-jar-aloe.jpg`, `ai-pouch-aloe.jpg` | Gel Pelembap Lidah Buaya: toples dan kantong |
+| `ai-jar-ceramide.jpg`, `ai-pod.jpg` | Krim Ceramide: toples dan pod isi ulang |
+| `ai-jar-kaolin.jpg` | Masker Lempung Kaolin |
+| `ai-balm-bibir.jpg` | Balm Bibir Kemiri (stik) |
+| `ai-pompa-losion.jpg`, `ai-pouch-losion.jpg` | Losion Tubuh Kelapa: botol pompa dan kantong 500 ml |

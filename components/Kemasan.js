@@ -617,24 +617,32 @@ function ukuranBentuk(kemasan, s, v) {
 
 // bingkai: 'rak' = skala sebenarnya di bingkai 200 × 300 (untuk jajaran di rak);
 // 'pas' = dipotong ke bentuknya dengan rasio 4:5 (untuk kartu produk).
-// Foto kemasan (CC0/PD, tanpa merek) per bentuk wadah; label Takar ditempel di atasnya lewat HTML.
-// Bentuk yang tidak punya foto yang cocok (kantong, wadah dalam, tabung kertas) tetap ilustrasi SVG.
+// Foto kemasan per produk (dan per varian bila wadahnya beda): CC0/PD atau gambar AI polos tanpa merek; label Takar ditempel lewat HTML.
 const FOTO = {
-  pipet: ['pipet-1', 'pipet-2'],
-  'pipet-amber': ['amber'],
-  botol: ['amber'],
-  pompa: ['pompa'],
-  tabung: ['tabung'],
-  jar: ['jar'],
-  batang: ['sabun'],
+  'gel-pembersih-pegagan': { '100-pompa': 'pompa', '200-isi-ulang': 'ai-pouch-gel' },
+  'balm-pembersih-kelapa': { '*': 'jar' },
+  'esens-air-beras': { '150-botol': 'ai-botol-esens', '300-isi-ulang': 'ai-pouch-esens' },
+  'toner-aha-5': { '100-botol': 'ai-botol-toner', '200-isi-ulang': 'ai-pouch-toner' },
+  'serum-niasinamida-5': { '*': 'pipet-1' },
+  'serum-vitamin-c-10': { '*': 'ai-pipet-vitc' },
+  'serum-hialuronat-2': { '*': 'pipet-2' },
+  'serum-bha-2': { '*': 'ai-pipet-bha' },
+  'serum-retinol-03': { '*': 'ai-pipet-retinol' },
+  'gel-pelembap-lidah-buaya': { '50-jar': 'ai-jar-aloe', '50-isi-ulang': 'ai-pouch-aloe' },
+  'krim-ceramide': { '50-jar': 'ai-jar-ceramide', '50-isi-ulang': 'ai-pod' },
+  'tabir-surya-spf50': { '*': 'tabung' },
+  'masker-lempung-kaolin': { '*': 'ai-jar-kaolin' },
+  'balm-bibir-kemiri': { '*': 'ai-balm-bibir' },
+  'sabun-batang-sereh': { '*': 'sabun' },
+  'losion-tubuh-kelapa': { '250-pompa': 'ai-pompa-losion', '500-isi-ulang': 'ai-pouch-losion' },
 };
 const RASIO = { rak: '2 / 3', 'rak-dekat': '200 / 222', 'rak-rendah': '200 / 196', pas: '4 / 5' };
 
 function berkasFoto(p, v) {
-  const daftar = FOTO[v.kemasan];
-  if (!daftar) return null;
-  const n = [...p.slug].reduce((a, c) => a + c.charCodeAt(0), 0);
-  const src = `/images/kemasan/${daftar[n % daftar.length]}.jpg`;
+  const per = FOTO[p.slug];
+  const nama = per && (per[v.id] || per['*']);
+  if (!nama) return null;
+  const src = `/images/kemasan/${nama}.jpg`;
   return manifest[src] ? src : null;
 }
 
