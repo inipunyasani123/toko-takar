@@ -3,6 +3,8 @@
 // Ilustrasi kemasan Takar (SVG). Satu gaya untuk semua produk: kaca buram atau cokelat dengan garis takar
 // tercetak di sisi botol, label kertas, dan tutup berwarna sesuai langkah pakai.
 import { useId } from 'react';
+import Image from 'next/image';
+import manifest from '@/image-manifest.json';
 import { cariProduk, cariLangkah } from '@/lib/data';
 import { cariVarian } from '@/lib/katalog';
 
@@ -615,10 +617,64 @@ function ukuranBentuk(kemasan, s, v) {
 
 // bingkai: 'rak' = skala sebenarnya di bingkai 200 × 300 (untuk jajaran di rak);
 // 'pas' = dipotong ke bentuknya dengan rasio 4:5 (untuk kartu produk).
-export default function Kemasan({ slug, varian, judul, className = '', bingkai = 'rak', style }) {
+// Foto kemasan (CC0/PD, tanpa merek) per bentuk wadah; label Takar ditempel di atasnya lewat HTML.
+// Bentuk yang tidak punya foto yang cocok (kantong, wadah dalam, tabung kertas) tetap ilustrasi SVG.
+const FOTO = {
+  pipet: ['pipet-1', 'pipet-2'],
+  'pipet-amber': ['amber'],
+  botol: ['amber'],
+  pompa: ['pompa'],
+  tabung: ['tabung'],
+  jar: ['jar'],
+  batang: ['sabun'],
+};
+const RASIO = { rak: '2 / 3', 'rak-dekat': '200 / 222', 'rak-rendah': '200 / 196', pas: '4 / 5' };
+
+function berkasFoto(p, v) {
+  const daftar = FOTO[v.kemasan];
+  if (!daftar) return null;
+  const n = [...p.slug].reduce((a, c) => a + c.charCodeAt(0), 0);
+  const src = `/images/kemasan/${daftar[n % daftar.length]}.jpg`;
+  return manifest[src] ? src : null;
+}
+
+export const punyaFoto = (slug, varian) => {
+  const p = cariProduk(slug);
+  return Boolean(berkasFoto(p, cariVarian(p, varian)));
+};
+
+function KemasanFoto({ src, p, v, l, judul, className, style, bingkai, sizes }) {
+  const isiTeks = v.jumlahIsi ? `${v.jumlahIsi}×${v.ukuran / v.jumlahIsi} ${v.satuan}` : `${v.ukuran} ${v.satuan}`;
+  return (
+    <div
+      className={`relative overflow-hidden rounded-[10px] bg-kertas ${className}`}
+      style={{ aspectRatio: RASIO[bingkai] || RASIO.pas, containerType: 'inline-size', ...style }}
+      role={judul ? 'img' : undefined}
+      aria-label={judul || undefined}
+      aria-hidden={judul ? undefined : 'true'}
+    >
+      <Image src={src} alt="" fill sizes={sizes} className="object-cover" />
+      <div className="absolute bottom-[6cqw] left-[6cqw] w-[38cqw] overflow-hidden bg-[#fbfaf5] shadow-[0_1px_3px_rgba(23,32,28,0.35)]" style={{ fontSize: '10cqw' }}>
+        <div className="h-[1.6cqw]" style={{ background: l.warna }} />
+        <div className="px-[2.4cqw] pb-[2cqw] pt-[1.4cqw] text-center leading-none text-[#17201c]">
+          <div className="text-[3.6cqw] tracking-wide" style={{ fontFamily: 'var(--font-display)' }}>takar</div>
+          <div className="mt-[0.8cqw] text-[5.4cqw] leading-[1.05]" style={{ fontFamily: 'var(--font-display)' }}>{p.label.nama.join(' ')}</div>
+          {p.label.angka ? (
+            <div className="mt-[0.8cqw] text-[6.4cqw] font-medium" style={{ fontFamily: 'var(--font-mono)' }}>{p.label.angka}</div>
+          ) : null}
+          <div className="mt-[1cqw] border-t border-[#cfd6d0] pt-[0.8cqw] text-[3cqw]" style={{ fontFamily: 'var(--font-mono)' }}>{isiTeks}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Kemasan({ slug, varian, judul, className = '', bingkai = 'rak', style, sizes = '(min-width: 1024px) 320px, 45vw' }) {
+  const id = useId().replace(/:/g, '');
   const p = cariProduk(slug);
   const v = cariVarian(p, varian);
-  const id = useId().replace(/:/g, '');
+  const foto = berkasFoto(p, v);
+  if (foto) return <KemasanFoto src={foto} p={p} v={v} l={cariLangkah(p.langkah)} judul={judul} className={className} style={style} bingkai={bingkai} sizes={sizes} />;
   const l = cariLangkah(p.langkah);
   const Bentuk = BENTUK[v.kemasan] || Pipet;
   const amber = v.kemasan === 'pipet-amber';

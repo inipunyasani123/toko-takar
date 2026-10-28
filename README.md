@@ -23,7 +23,7 @@ Toko online demo untuk paket **Toko Online** PintuWeb. Takar adalah merek perawa
 - **Huruf:** Hedvig Letters Serif (judul), Instrument Sans (teks), DM Mono (kadar, ml, pH, INCI). Semua lewat `next/font`, variabel dipasang di `<html>`.
 - **Warna:** ubin kamar mandi pagi (putih kehijauan), tinta hijau gelap, dan kunyit. Tiap langkah pakai punya warna tutup sendiri: biru air, hijau embun, kunyit, merah jambu, jingga, ungu lembut, dan hijau sereh.
 - **Motif:** pita ukur kuning (bibir rak dan garis atas situs), garis takar yang tercetak di botol kaca, dinding ubin, olesan tekstur, dan piktogram takaran (tetes, pompa, seukuran kacang, dua ruas jari).
-- **Ilustrasi kemasan** digambar dengan SVG di `components/Kemasan.js`: botol pipet kaca buram dan cokelat, botol pompa, botol toner, tabung, jar, kantong isi ulang dengan garis gunting, wadah dalam, tabung kertas, dan sabun batang. Ukuran varian ikut mengubah tinggi botol, dan label menghitung ukuran hurufnya sendiri supaya selalu muat.
+- **Kemasan**: botol pipet, botol kaca, botol pompa, tabung, jar, dan sabun batang memakai foto CC0 tanpa merek (`public/images/kemasan/`, sumber di `public/images/SUMBER.md`) dengan label Takar ditempel lewat CSS. Sisanya diilustrasikan dengan SVG di `components/Kemasan.js`: botol pipet kaca buram dan cokelat, botol pompa, botol toner, tabung, jar, kantong isi ulang dengan garis gunting, wadah dalam, tabung kertas, dan sabun batang. Ukuran varian ikut mengubah tinggi botol, dan label menghitung ukuran hurufnya sendiri supaya selalu muat.
 
 ## Model data
 

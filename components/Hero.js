@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import Kemasan from './Kemasan';
+import Kemasan, { punyaFoto } from './Kemasan';
 import { cariProduk, cariLangkah, produk } from '@/lib/data';
 
 const RAK = {
@@ -104,7 +104,12 @@ export default function Hero() {
                         slug={slug}
                         varian={v.id}
                         bingkai="rak-dekat"
-                        className="mx-auto -mb-[4%] block w-[150%] max-w-none -translate-x-[16.5%] transition-transform duration-300 group-hover:-translate-y-1.5 sm:w-[124%] sm:-translate-x-[9.5%]"
+                        className={
+                          punyaFoto(slug, v.id)
+                            ? 'mx-auto mb-1 block w-[94%] transition-transform duration-300 group-hover:-translate-y-1.5'
+                            : 'mx-auto -mb-[4%] block w-[150%] max-w-none -translate-x-[16.5%] transition-transform duration-300 group-hover:-translate-y-1.5 sm:w-[124%] sm:-translate-x-[9.5%]'
+                        }
+                        sizes="(min-width: 1024px) 130px, 22vw"
                       />
                     </Link>
                   </li>

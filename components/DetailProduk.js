@@ -112,7 +112,8 @@ export default function DetailProduk({ slug }) {
                   slug={p.slug}
                   varian={tampil.id}
                   bingkai="pas"
-                  judul={`Ilustrasi ${p.nama}, ${tampil.label}`}
+                  judul={`Kemasan ${p.nama}, ${tampil.label} (foto contoh)`}
+                  sizes="(min-width: 1024px) 640px, 100vw"
                   className="absolute inset-[4%] h-[92%] w-[92%] animate-[muncul_0.4s_ease-out] motion-reduce:animate-none"
                 />
               ) : (
