@@ -128,7 +128,7 @@ export default function DetailProduk({ slug }) {
                         >
                           {k.n}
                         </span>
-                        <span className={`text-center text-[0.68rem] leading-tight ${k.n === p.tekstur.kental ? 'font-semibold text-tinta' : 'text-tinta-3'}`}>{k.nama}</span>
+                        <span className={`text-center text-[0.75rem] leading-tight ${k.n === p.tekstur.kental ? 'font-semibold text-tinta' : 'text-tinta-3'}`}>{k.nama}</span>
                       </li>
                     ))}
                   </ol>
@@ -198,7 +198,7 @@ export default function DetailProduk({ slug }) {
                     <span className="min-w-0 flex-1">
                       <span className="block font-medium text-tinta">
                         {x.jumlahIsi ? `${x.jumlahIsi} × ${angkaId(x.ukuran / x.jumlahIsi)} ${x.satuan}` : `${angkaId(x.ukuran)} ${x.satuan}`}
-                        {x.isiUlang && <span className="data ms-2 rounded-full bg-kunyit-muda px-2 py-0.5 text-[0.7rem] text-kunyit-tua">isi ulang</span>}
+                        {x.isiUlang && <span className="data ms-2 rounded-full bg-kunyit-muda px-2 py-0.5 text-[0.75rem] text-kunyit-tua">isi ulang</span>}
                       </span>
                       <span className="block text-[0.85rem] text-tinta-2">
                         {namaWadah(x)} · {rupiah(Math.round(x.harga / x.ukuran))}/{x.satuan}
@@ -206,7 +206,7 @@ export default function DetailProduk({ slug }) {
                     </span>
                     <span className="text-end">
                       <span className="block text-[0.95rem] font-semibold text-tinta">{rupiah(x.harga)}</span>
-                      <span className={`data block text-[0.7rem] ${habis || s <= 5 ? 'text-awas' : 'text-tinta-3'}`}>{habis ? 'Habis' : s <= 5 ? `Sisa ${s}` : `Stok ${s}`}</span>
+                      <span className={`data block text-[0.75rem] ${habis || s <= 5 ? 'text-awas' : 'text-tinta-3'}`}>{habis ? 'Habis' : s <= 5 ? `Sisa ${s}` : `Stok ${s}`}</span>
                     </span>
                   </label>
                 );

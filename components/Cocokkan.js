@@ -34,7 +34,7 @@ function Baris({ slug, j, no }) {
         <Kemasan slug={slug} varian={v.id} bingkai="pas" className="h-full w-full" />
       </span>
       <span className="min-w-0">
-        <span className="data block text-[0.72rem] opacity-80">
+        <span className="data block text-[0.75rem] opacity-80">
           {String(no).padStart(2, '0')} · {l.nama}
         </span>
         <Link href={`/produk/${slug}`} className="block font-medium leading-snug hover:underline">
@@ -93,7 +93,7 @@ export default function Cocokkan() {
           <div className="mt-4 grid gap-2 sm:grid-cols-2">
             {jenisKulit.map((k) => (
               <label key={k.id} className="pilihan flex items-start gap-3 p-3.5">
-                <input type="radio" name="kulit" value={k.id} checked={kulit === k.id} onChange={() => setKulit(k.id)} className="mt-1 h-[1.05rem] w-[1.05rem] shrink-0 accent-[#17201c]" />
+                <input type="radio" name="kulit" value={k.id} checked={kulit === k.id} onChange={() => setKulit(k.id)} className="mt-1 h-[1.25rem] w-[1.25rem] shrink-0 accent-[#17201c]" />
                 <span>
                   <span className="block font-medium">{CIRI_KULIT[k.id]}</span>
                   <span className="block text-[0.85rem] text-tinta-3">Kulit {k.nama.toLowerCase()}</span>
@@ -111,7 +111,7 @@ export default function Cocokkan() {
           <div className="mt-4 grid gap-2 sm:grid-cols-3">
             {PEKA.map((x) => (
               <label key={x.id} className="pilihan flex items-start gap-3 p-3.5">
-                <input type="radio" name="peka" value={x.id} checked={peka === x.id} onChange={() => setPeka(x.id)} className="mt-1 h-[1.05rem] w-[1.05rem] shrink-0 accent-[#17201c]" />
+                <input type="radio" name="peka" value={x.id} checked={peka === x.id} onChange={() => setPeka(x.id)} className="mt-1 h-[1.25rem] w-[1.25rem] shrink-0 accent-[#17201c]" />
                 <span>
                   <span className="block font-medium">{x.nama}</span>
                   <span className="block text-[0.85rem] text-tinta-3">{x.ket}</span>
@@ -140,7 +140,7 @@ export default function Cocokkan() {
                     disabled={!dipilih && tj.length >= 2}
                     onChange={() => balikTujuan(t.id)}
                     aria-describedby="petunjuk-tujuan"
-                    className="h-[1.05rem] w-[1.05rem] shrink-0 accent-[#17201c]"
+                    className="h-[1.25rem] w-[1.25rem] shrink-0 accent-[#17201c]"
                   />
                   {t.nama}
                 </label>
@@ -160,7 +160,7 @@ export default function Cocokkan() {
               { id: true, nama: 'Ringkas', ket: 'Tiga sampai empat langkah' },
             ].map((x) => (
               <label key={x.nama} className="pilihan flex items-start gap-3 p-3.5">
-                <input type="radio" name="ringkas" checked={ringkas === x.id} onChange={() => setRingkas(x.id)} className="mt-1 h-[1.05rem] w-[1.05rem] shrink-0 accent-[#17201c]" />
+                <input type="radio" name="ringkas" checked={ringkas === x.id} onChange={() => setRingkas(x.id)} className="mt-1 h-[1.25rem] w-[1.25rem] shrink-0 accent-[#17201c]" />
                 <span>
                   <span className="block font-medium">{x.nama}</span>
                   <span className="block text-[0.85rem] text-tinta-3">{x.ket}</span>

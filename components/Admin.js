@@ -46,7 +46,7 @@ function GrafikTujuhHari({ hari }) {
       <div className="relative mt-5 grid grid-cols-[3.4rem_1fr] gap-2">
         <div className="relative" style={{ height: tinggiPlot }} aria-hidden="true">
           {[atas, atas / 2, 0].map((v, i) => (
-            <span key={v} className="data absolute right-0 -translate-y-1/2 text-[0.72rem] text-tinta-3" style={{ top: `${i * 50}%` }}>
+            <span key={v} className="data absolute right-0 -translate-y-1/2 text-[0.75rem] text-tinta-3" style={{ top: `${i * 50}%` }}>
               {rupiahRingkas(v)}
             </span>
           ))}
@@ -77,7 +77,7 @@ function GrafikTujuhHari({ hari }) {
                       style={{ height: `${Math.max(tinggi, h.total ? 2 : 0)}%` }}
                     />
                     {(hariIni || (i === iMaks && h.total > 0)) && (
-                      <span className="data absolute -translate-y-1 text-[0.72rem] font-medium text-tinta" style={{ bottom: `${Math.max(tinggi, 0)}%` }} aria-hidden="true">
+                      <span className="data absolute -translate-y-1 text-[0.75rem] font-medium text-tinta" style={{ bottom: `${Math.max(tinggi, 0)}%` }} aria-hidden="true">
                         {rupiahRingkas(h.total)}
                       </span>
                     )}
@@ -98,7 +98,7 @@ function GrafikTujuhHari({ hari }) {
         <span />
         <ul className="grid grid-cols-7" aria-hidden="true">
           {hari.map((h, i) => (
-            <li key={h.kunci} className={`text-center text-[0.72rem] leading-tight ${i === hari.length - 1 ? 'font-semibold text-tinta' : 'text-tinta-3'}`}>
+            <li key={h.kunci} className={`text-center text-[0.75rem] leading-tight ${i === hari.length - 1 ? 'font-semibold text-tinta' : 'text-tinta-3'}`}>
               {i === hari.length - 1 ? 'Hari ini' : hariPendek(h.awal + 3600000)}
               <span className="block tabular-nums">{tanggalPendek(h.awal + 3600000)}</span>
             </li>
@@ -249,7 +249,7 @@ export default function Admin() {
             <li key={p.kode} className="rounded-[14px] border border-garis-tua bg-kertas p-4">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <Link href={`/pesanan/${p.kode}`} className="data whitespace-nowrap text-[0.85rem] underline underline-offset-2">
+                  <Link href={`/pesanan/${p.kode}`} className="data inline-block py-1 whitespace-nowrap text-[0.85rem] underline underline-offset-2">
                     {p.kode}
                   </Link>
                   <p className="mt-1 text-[0.85rem] text-tinta-2">
@@ -289,7 +289,7 @@ export default function Admin() {
               {tampil.map((p) => (
                 <tr key={p.kode} className="border-b border-garis last:border-0">
                   <th scope="row" className="px-4 py-3 font-normal">
-                    <Link href={`/pesanan/${p.kode}`} className="data whitespace-nowrap text-[0.85rem] underline underline-offset-2">
+                    <Link href={`/pesanan/${p.kode}`} className="data inline-block py-1 whitespace-nowrap text-[0.85rem] underline underline-offset-2">
                       {p.kode}
                     </Link>
                     {p.contoh && <span className="block text-[0.75rem] text-tinta-3">contoh</span>}
@@ -335,7 +335,7 @@ export default function Admin() {
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <p className="font-semibold">
                     {m.nama}
-                    {!m.dibaca && <span className="data ms-2 rounded-full bg-kunyit px-2 py-0.5 text-[0.7rem] font-medium">baru</span>}
+                    {!m.dibaca && <span className="data ms-2 rounded-full bg-kunyit px-2 py-0.5 text-[0.75rem] font-medium">baru</span>}
                   </p>
                   <p className="data text-[0.78rem] text-tinta-3">{waktuWIB(m.waktu)}</p>
                 </div>
@@ -373,7 +373,7 @@ export default function Admin() {
           {menipis.slice(0, 12).map(({ p, v, s }) => (
             <li key={`${p.slug}-${v.id}`} className="flex items-center justify-between gap-3 rounded-xl border border-garis bg-kertas px-3.5 py-2.5">
               <span className="min-w-0">
-                <a href={`#stok-${p.slug}`} className="block font-medium leading-snug hover:underline">
+                <a href={`#stok-${p.slug}`} className="block py-0.5 font-medium leading-snug hover:underline">
                   {p.nama}
                 </a>
                 <span className="data block text-[0.78rem] text-tinta-2">{labelVarian(p, v.id)}</span>

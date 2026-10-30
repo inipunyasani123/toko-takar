@@ -184,7 +184,7 @@ export default function Checkout() {
                       type="radio"
                       name="layanan"
                       value={l.id}
-                      className="mt-1 h-[1.05rem] w-[1.05rem] accent-[#17201c]"
+                      className="mt-1 h-[1.25rem] w-[1.25rem] accent-[#17201c]"
                       checked={layananAktif === l.id && !tidakAda}
                       disabled={Boolean(tidakAda)}
                       onChange={() => setLayanan(l.id)}
@@ -284,7 +284,7 @@ export default function Checkout() {
                     type="radio"
                     name="metode"
                     value={m.id}
-                    className="mt-1 h-[1.05rem] w-[1.05rem] accent-[#17201c]"
+                    className="mt-1 h-[1.25rem] w-[1.25rem] accent-[#17201c]"
                     checked={f.metode === m.id}
                     onChange={() => {
                       setF((x) => ({ ...x, metode: m.id }));

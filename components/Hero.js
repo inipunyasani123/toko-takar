@@ -126,7 +126,7 @@ export default function Hero() {
                 return (
                   <li key={`${waktu}-l-${slug}`} className="text-center">
                     <span className={`data block text-[0.95rem] font-medium ${malam ? 'text-kunyit' : 'text-tinta'}`}>{String(i + 1).padStart(2, '0')}</span>
-                    <span className={`block text-[0.72rem] leading-tight sm:text-[0.8rem] ${malam ? 'text-[#c9d3cd]' : 'text-tinta-2'}`}>{l.nama}</span>
+                    <span className={`block text-[0.75rem] leading-tight sm:text-[0.8rem] ${malam ? 'text-[#c9d3cd]' : 'text-tinta-2'}`}>{l.nama}</span>
                   </li>
                 );
               })}

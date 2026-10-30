@@ -65,7 +65,7 @@ export default function Kamus() {
                 <label className="pilihan flex min-h-10 items-center gap-1.5 rounded-full px-3 text-[0.88rem]">
                   <input type="radio" name="fungsi" className="sr-only" checked={f === id} onChange={() => setF(id)} />
                   {x.nama}
-                  <span className="data text-[0.7rem] text-tinta-3">{id ? HITUNG_FUNGSI[id] : kandungan.length}</span>
+                  <span className="data text-[0.75rem] text-tinta-3">{id ? HITUNG_FUNGSI[id] : kandungan.length}</span>
                 </label>
               </li>
             ))}
@@ -118,7 +118,7 @@ export default function Kamus() {
                               <h3 className="font-display text-[1.35rem] leading-tight">{k.nama}</h3>
                               <span className="flex flex-wrap gap-1">
                                 {k.fungsi.map((x) => (
-                                  <span key={x} className="data rounded-full bg-kabut px-2 py-0.5 text-[0.72rem] text-tinta-2">
+                                  <span key={x} className="data rounded-full bg-kabut px-2 py-0.5 text-[0.75rem] text-tinta-2">
                                     {fungsi[x].nama}
                                   </span>
                                 ))}

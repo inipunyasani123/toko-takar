@@ -130,7 +130,7 @@ export default function Katalog() {
       <div className="flex flex-wrap items-center gap-3 lg:hidden">
         <button type="button" className="tombol tombol-garis min-h-11 py-2" aria-expanded={panel} aria-controls={idPanel} onClick={() => setPanel((v) => !v)}>
           {panel ? 'Tutup saringan' : 'Saring'}
-          {jumlahFilter > 0 && <span className="data rounded-full bg-kunyit px-2 py-0.5 text-[0.7rem] text-tinta">{jumlahFilter}</span>}
+          {jumlahFilter > 0 && <span className="data rounded-full bg-kunyit px-2 py-0.5 text-[0.75rem] text-tinta">{jumlahFilter}</span>}
         </button>
         <span className="ms-auto flex items-center gap-2 text-[0.9rem]">
           <span className="text-tinta-2" aria-hidden="true">

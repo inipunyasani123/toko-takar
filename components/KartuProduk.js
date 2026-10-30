@@ -32,16 +32,16 @@ export default function KartuProduk({ produk: p, inventaris, judulTag = 'h3', ri
       <div className="relative aspect-[4/5] overflow-hidden rounded-[14px]" style={{ background: l.muda }}>
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[22%] bg-gradient-to-b from-transparent to-black/[0.035]" />
         <Kemasan slug={p.slug} varian={v.id} bingkai="pas" className="absolute inset-0 h-full w-full transition-transform duration-500 ease-out group-hover:-translate-y-1.5 motion-reduce:transition-none" />
-        <p className="data absolute left-3 top-3 flex items-center gap-1.5 text-[0.7rem] text-tinta-2">
+        <p className="data absolute left-3 top-3 flex items-center gap-1.5 text-[0.75rem] text-tinta-2">
           <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full" style={{ background: l.warna, boxShadow: `inset 0 0 0 1px ${l.tua}40` }} />
           {l.no ? `0${l.no} ${l.nama}` : l.nama}
         </p>
-        {stok === 0 && <p className="data absolute right-3 top-3 rounded-full bg-tinta px-2 py-0.5 text-[0.68rem] text-kertas">Habis</p>}
+        {stok === 0 && <p className="data absolute right-3 top-3 rounded-full bg-tinta px-2 py-0.5 text-[0.75rem] text-kertas">Habis</p>}
         {stok !== null && stok > 0 && stok <= 5 && (
-          <p className="data absolute right-3 top-3 rounded-full bg-kertas px-2 py-0.5 text-[0.68rem] text-awas">Sisa {stok}</p>
+          <p className="data absolute right-3 top-3 rounded-full bg-kertas px-2 py-0.5 text-[0.75rem] text-awas">Sisa {stok}</p>
         )}
         {adaIsiUlang(p) && (
-          <p className="data absolute bottom-3 left-3 rounded-full bg-kertas/90 px-2 py-0.5 text-[0.68rem] text-tinta">Ada isi ulang</p>
+          <p className="data absolute bottom-3 left-3 rounded-full bg-kertas/90 px-2 py-0.5 text-[0.75rem] text-tinta">Ada isi ulang</p>
         )}
       </div>
       <div className="flex flex-1 flex-col pt-3">
